@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Personal Web</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+
+:root {
+  --bg1: #0f0f14;
+  --bg2: #181b22;
+  --card: #141821;
+  --accent: #6cf;
+  --muted: #aaa;
+}
+
+body {
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* PARALLAX BG */
+.parallax {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(108,207,255,.15), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(140,255,255,.12), transparent 40%),
+    linear-gradient(135deg, #0f0f14, #181b22);
+  transform: translateY(0);
+  will-change: transform;
+}
+
+/* NAV */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 12px 18px;
+  backdrop-filter: blur(8px);
+  background: rgba(15, 15, 20, 0.85);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+}
+
+header h1 { color: var(--accent); font-size: 16px; }
+
+header nav a {
+  color: var(--muted);
+  margin-left: 12px;
+  text-decoration: none;
+  font-size: 13px;
+  transition: .25s;
+}
+header nav a:hover { color: var(--accent); }
+
+/* SECTION */
+section {
+  min-height: 100vh;
+  padding: 90px 6% 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* HERO */
+.hero h2 {
+  font-size: clamp(22px, 6vw, 40px);
+  animation: fadeUp .9s ease forwards;
+}
+.hero p {
+  color: var(--muted);
+  text-align: center;
+  animation: fadeUp 1.2s ease forwards;
+}
+.hero img {
+  width: 130px;
+  margin-top: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(108,207,255,.45);
+  animation: float 3s ease-in-out infinite;
+}
+
+/* CARD */
+.card {
+  background: var(--card);
+  padding: 18px;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 720px;
+  transition: .35s;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(108,207,255,.35);
+}
+
+/* SKILL */
+.skill { margin: 10px 0; font-size: 13px; }
+.bar {
+  height: 8px;
+  background: #222;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #6cf, #8ff);
+  border-radius: 20px;
+  transition: 1.2s ease;
+}
+
+/* PROJECT */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  width: 100%;
+  max-width: 900px;
+}
+.project {
+  background: var(--card);
+  padding: 14px;
+  border-radius: 12px;
+  text-align: center;
+  transition: .3s;
+}
+.project:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 18px rgba(108,207,255,.35);
+}
+
+/* ANIM */
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(20px); }
+  to { opacity:1; transform: translateY(0); }
+}
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* MOBILE TWEAK */
+@media (max-width: 480px) {
+  header h1 { font-size: 14px; }
+  header nav a { font-size: 12px; margin-left: 8px; }
+  .hero img { width: 110px; }
+}
+</style>
+</head>
+<body>
+
+<div class="parallax" id="parallax"></div>
+
+<header>
+  <h1>WANZ0</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skill">Skill</a>
+    <a href="#project">Waifu</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h2>Hello</h2>
+  <p>Welcome to my personal web</p>
+  <img src="https://image2url.com/r2/default/images/1771124015446-3a94e14e-5d58-4c24-b79e-58f8337876bf.webp">
+</section>
+
+<section id="about">
+  <div class="card">
+    <h2>About Me</h2>
+    <p>I am a content creator for the game umamusume, I have experience uploading similar content on different platforms. </p>
+  </div>
+</section>
+
+<section id="skill">
+  <div class="card">
+    <h2>Skills</h2>
+    <div class="skill">Edit<div class="bar"><div class="fill" data-fill="90%"></div></div></div>
+    <div class="skill">design<div class="bar"><div class="fill" data-fill="45%"></div></div></div>
+  </div>
+</section>
+
+<section id="project">
+  <h2>Waifus</h2>
+  <div class="projects">
+    <div class="project">Agnes tachyon</div>
+    <div class="project">almond eye</div>
+    <div class="project">manhattan cafe</div>
+    <div class="project">fenomeno</div>
+  </div>
+</section>
+
+<script>
+/* Skill bar anim */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.style.width = e.target.dataset.fill;
+  });
+});
+document.querySelectorAll('.fill').forEach(el => observer.observe(el));
+
+/* Parallax */
+const bg = document.getElementById('parallax');
+window.addEventListener('scroll', () => {
+  bg.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+});
+</script>
+
+</body>
+  </html>
